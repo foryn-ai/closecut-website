@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+CFG_FILE="$ROOT_DIR/codex.toml"
+
+if [[ ! -f "$CFG_FILE" ]]; then
+  echo "Missing config: $CFG_FILE" >&2
+  exit 1
+fi
+
+read_cfg() {
+  local key="$1"
+  sed -nE "s/^[[:space:]]*${key}[[:space:]]*=[[:space:]]*\"?([^\"]+)\"?[[:space:]]*$/\1/p" "$CFG_FILE" | head -n1
+}
+
+SANDBOX="$(read_cfg sandbox)"
+APPROVAL="$(read_cfg approval_policy)"
+SEARCH="$(read_cfg search)"
+
+if [[ -z "$SANDBOX" || -z "$APPROVAL" ]]; then
+  echo "Invalid config in $CFG_FILE. Expected sandbox and approval_policy." >&2
+  exit 1
+fi
+
+args=(--sandbox "$SANDBOX" --ask-for-approval "$APPROVAL")
+
+if [[ "$SEARCH" == "true" ]]; then
+  args+=(--search)
+fi
+
+exec codex "${args[@]}" "$@"

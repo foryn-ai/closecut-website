@@ -1,0 +1,6 @@
+[behavior]
+confirm_before = ["git push", "npm install", "pnpm install", "yarn install", "bun install"]
+forbid = ["rm -rf"]
+
+[defaults]
+run_tests = false

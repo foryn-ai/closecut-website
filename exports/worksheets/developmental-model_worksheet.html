@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Developmental Model</title>
+  <style>
+    @font-face { font-family: InterCustom; src: url('file:///home/randy/dev/business/therafox/public/fonts/inter-latin-400-normal.woff2') format('woff2'); font-weight: 400; }
+    @font-face { font-family: InterCustom; src: url('file:///home/randy/dev/business/therafox/public/fonts/inter-latin-600-normal.woff2') format('woff2'); font-weight: 600; }
+    @font-face { font-family: PlayfairCustom; src: url('file:///home/randy/dev/business/therafox/public/fonts/playfair-display-latin-400-normal.woff2') format('woff2'); font-weight: 400; }
+    @font-face { font-family: PlayfairCustom; src: url('file:///home/randy/dev/business/therafox/public/fonts/playfair-display-latin-700-normal.woff2') format('woff2'); font-weight: 700; }
+
+    :root {
+      --canvas: #FDFCFB;
+      --primary: #6B7F6D;
+      --heading: #2D3748;
+      --accent: #D4AF37;
+      --body: #718096;
+      --line: #d7ddd5;
+      --surface: #f7f8f6;
+      --surface-glow: #f4f7f2;
+    }
+
+    * { box-sizing: border-box; }
+
+    @page {
+      size: Letter;
+      margin: 10mm;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--canvas);
+      color: var(--heading);
+      font-family: InterCustom, Inter, system-ui, -apple-system, Segoe UI, sans-serif;
+    }
+
+    .sheet {
+      height: 255mm;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header-bar {
+      margin-bottom: 4.2mm;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 4mm;
+    }
+
+    .title {
+      margin: 0;
+      font-family: PlayfairCustom, "Playfair Display", Georgia, serif;
+      font-weight: 700;
+      font-size: 9mm;
+      line-height: 1.05;
+      color: var(--heading);
+      letter-spacing: 0.01em;
+    }
+
+    .brand-mark {
+      width: 42mm;
+      height: auto;
+      opacity: 0.78;
+      margin-top: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 3mm;
+    }
+
+    .row-shell {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 4mm;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .bento {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 34mm;
+      align-items: stretch;
+      min-height: 58mm;
+    }
+
+    .bento.icon-left {
+      grid-template-columns: 34mm minmax(0, 1fr);
+    }
+
+    .text-cell {
+      padding: 4.8mm 4.8mm;
+      display: grid;
+      gap: 2.4mm;
+      align-content: start;
+    }
+
+    .text-cell h2 {
+      margin: 0;
+      font-family: PlayfairCustom, "Playfair Display", Georgia, serif;
+      font-weight: 700;
+      font-size: 4.6mm;
+      line-height: 1.15;
+      color: var(--heading);
+    }
+
+    .text-cell p,
+    .text-cell li {
+      margin: 0;
+      color: var(--body);
+      font-size: 3.4mm;
+      line-height: 1.33;
+    }
+
+    .what-is-it p + p {
+      margin-top: 2mm;
+    }
+
+    .text-cell ul,
+    .text-cell ol {
+      margin: 0;
+      padding-left: 4.8mm;
+      display: grid;
+      gap: 2.1mm;
+    }
+
+    .icon-cell {
+      background: transparent;
+      border-left: 0;
+      display: grid;
+      place-items: center;
+      padding: 5mm 2mm;
+      text-align: center;
+    }
+
+    .icon-left .icon-cell {
+      border-left: 0;
+      border-right: 0;
+    }
+
+    .icon-wrap {
+      display: grid;
+      gap: 1.8mm;
+      justify-items: center;
+    }
+
+    .icon-wrap img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      filter: saturate(0.85);
+    }
+
+    .svg-icon-inline {
+      width: 60px;
+      height: 60px;
+      display: grid;
+      place-items: center;
+      color: #2D3748;
+    }
+
+    .svg-icon-inline svg {
+      width: 60px;
+      height: 60px;
+      display: block;
+    }
+
+    .svg-icon-inline svg [stroke] {
+      stroke: #2D3748 !important;
+    }
+
+    .svg-icon-inline svg [fill]:not([fill="none"]) {
+      fill: #2D3748 !important;
+    }
+
+    .icon-label {
+      font-size: 2.8mm;
+      line-height: 1.2;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .icon-placeholder {
+      width: 60px;
+      height: 60px;
+      border: 1px dashed var(--line);
+      color: var(--body);
+      display: grid;
+      place-items: center;
+      font-size: 2.4mm;
+    }
+
+    .pro-tip {
+      padding: 5mm;
+      background: linear-gradient(145deg, #fffdf6, #f9f7ef);
+      display: grid;
+      gap: 2.4mm;
+    }
+
+    .pro-tip h2 {
+      margin: 0;
+      font-family: PlayfairCustom, "Playfair Display", Georgia, serif;
+      font-size: 4.6mm;
+      color: var(--heading);
+    }
+
+    .pro-tip p {
+      margin: 0;
+      color: var(--body);
+      font-size: 3.45mm;
+      line-height: 1.32;
+    }
+
+    .footer {
+      margin-top: auto;
+      padding-top: 3mm;
+      border-top: 1px solid var(--line);
+      color: var(--body);
+      font-size: 2.9mm;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+  <main class="sheet" role="document" aria-label="Developmental Model worksheet">
+    <div class="header-bar">
+      <h1 class="title">Developmental Model</h1>
+      <img class="brand-mark" src="file:///home/randy/dev/business/therafox/public/therafox_logo_pack/wordmark/therafox-wordmark-tight.svg" alt="Therafox" />
+    </div>
+    <table aria-label="4 row worksheet table">
+      <tr>
+        <td class="row-shell">
+          <section class="bento icon-right">
+            <div class="text-cell">
+              <h2>What Is It</h2>
+              <div class="what-is-it"><p>The Developmental Model describes relationship growth as a sequence of maturational tasks where partners balance closeness with individuality. Instead of chasing constant agreement, it frames growth as building stronger self-definition, clearer boundaries, and more flexible responses under pressure.</p>
+<p>This worksheet helps translate that model into practical reflection so people can notice current stage demands, reduce unhelpful fusion patterns, and choose grounded next steps.</p></div>
+            </div>
+            <div class="icon-cell">
+              <div class="icon-wrap"><div class="svg-icon-inline" role="img" aria-label="Growth"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><rect width="256" height="256" fill="none"/><circle cx="128" cy="128" r="96" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><polygon points="176 80 112 112 80 176 144 144 176 80" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg></div><div class="icon-label">Growth</div></div>
+            </div>
+          </section>
+        </td>
+      </tr>
+      <tr>
+        <td class="row-shell">
+          <section class="bento icon-left">
+            <div class="icon-cell">
+              <div class="icon-wrap"><div class="svg-icon-inline" role="img" aria-label="Structure"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><rect width="256" height="256" fill="none"/><rect x="16" y="104" width="48" height="48" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><rect x="152" y="40" width="64" height="64" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><rect x="152" y="152" width="64" height="64" rx="8" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><line x1="64" y1="128" x2="112" y2="128" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/><path d="M152,184H128a16,16,0,0,1-16-16V88a16,16,0,0,1,16-16h24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg></div><div class="icon-label">Structure</div></div>
+            </div>
+            <div class="text-cell">
+              <h2>The Why</h2>
+              <ul><li>Reduces false urgency for immediate agreement and supports steadier decisions during high tension relational moments.</li>
+<li>Improves clarity about self-position, boundaries, and responsibility, which lowers repetitive conflict loops over time.</li>
+<li>Supports practical growth by linking current strain to developmental tasks and realistic next actions each week.</li></ul>
+            </div>
+          </section>
+        </td>
+      </tr>
+      <tr>
+        <td class="row-shell">
+          <section class="bento icon-right">
+            <div class="text-cell">
+              <h2>The How</h2>
+              <ol><li>Name the primary tension you keep repeating and mark where urgency rises fastest.</li>
+<li>Scan your recent interactions and identify one pattern driven by fusion rather than clear position.</li>
+<li>State one boundary that protects autonomy while preserving connection and shared responsibility.</li>
+<li>Close by choosing one small experiment and scheduling a review point within seven days with clear criteria.</li></ol>
+            </div>
+            <div class="icon-cell">
+              <div class="icon-wrap"><div class="svg-icon-inline" role="img" aria-label="Action"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><rect width="256" height="256" fill="none"/><polyline points="16 200 72 200 72 152 128 152 128 104 184 104 184 56 240 56" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16"/></svg></div><div class="icon-label">Action</div></div>
+            </div>
+          </section>
+        </td>
+      </tr>
+      <tr>
+        <td class="row-shell pro-tip">
+          <h2>Pro Tip</h2>
+          <p>Progress is easier to sustain when you change one repeat pattern at a time and track results weekly.</p>
+        </td>
+      </tr>
+    </table>
+    <p class="footer">Therafox.com | Educational worksheet only</p>
+  </main>
+</body>
+</html>

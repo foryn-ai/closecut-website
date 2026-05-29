@@ -1,0 +1,6 @@
+# Repo-local Codex launch defaults.
+# This file is consumed by scripts/codex-start.
+
+sandbox = "danger-full-access"
+approval_policy = "never"
+search = true

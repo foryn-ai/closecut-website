@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+SESSION_NAME="${1:-foryn-dual}"
+
+if ! command -v tmux >/dev/null 2>&1; then
+  echo "tmux is not installed. Install it first (example: sudo apt install tmux)." >&2
+  exit 1
+fi
+
+if [[ ! -x "$ROOT_DIR/scripts/codex-full" || ! -x "$ROOT_DIR/scripts/codex-readonly" ]]; then
+  echo "Codex launcher scripts are missing or not executable under $ROOT_DIR/scripts." >&2
+  exit 1
+fi
+
+if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+  tmux attach -t "$SESSION_NAME"
+  exit 0
+fi
+
+tmux new-session -d -s "$SESSION_NAME" -n full -c "$ROOT_DIR"
+tmux send-keys -t "$SESSION_NAME:full.0" "./scripts/codex-full" C-m
+
+tmux new-window -t "$SESSION_NAME" -n readonly -c "$ROOT_DIR"
+tmux send-keys -t "$SESSION_NAME:readonly.0" "./scripts/codex-readonly" C-m
+
+tmux new-window -t "$SESSION_NAME" -n shell -c "$ROOT_DIR"
+tmux send-keys -t "$SESSION_NAME:shell.0" "clear" C-m
+
+tmux select-window -t "$SESSION_NAME:full"
+tmux attach -t "$SESSION_NAME"

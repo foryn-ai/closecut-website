@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+exec codex --sandbox read-only --ask-for-approval untrusted --search "$@"

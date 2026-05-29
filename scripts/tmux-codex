@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+SESSION_NAME="${1:-foryn}"
+MODE="${2:-full}"
+
+case "$MODE" in
+  full) LAUNCHER="./scripts/codex-full" ;;
+  safe) LAUNCHER="./scripts/codex-safe" ;;
+  readonly) LAUNCHER="./scripts/codex-readonly" ;;
+  *)
+    echo "Invalid mode: $MODE (expected: full|safe|readonly)" >&2
+    exit 1
+    ;;
+esac
+
+if ! command -v tmux >/dev/null 2>&1; then
+  echo "tmux is not installed. Install it first (example: sudo apt install tmux)." >&2
+  exit 1
+fi
+
+if [[ ! -x "$ROOT_DIR/${LAUNCHER#./}" ]]; then
+  echo "Launcher not executable: $ROOT_DIR/${LAUNCHER#./}" >&2
+  exit 1
+fi
+
+if tmux has-session -t "$SESSION_NAME" 2>/dev/null; then
+  tmux attach -t "$SESSION_NAME"
+  exit 0
+fi
+
+tmux new-session -d -s "$SESSION_NAME" -n codex -c "$ROOT_DIR"
+tmux send-keys -t "$SESSION_NAME:codex.0" "$LAUNCHER" C-m
+tmux split-window -h -t "$SESSION_NAME:codex.0" -c "$ROOT_DIR"
+tmux send-keys -t "$SESSION_NAME:codex.1" "clear" C-m
+tmux select-pane -t "$SESSION_NAME:codex.0"
+tmux attach -t "$SESSION_NAME"
