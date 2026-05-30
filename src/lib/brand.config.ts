@@ -11,9 +11,9 @@ export const ADDRESS = "";
 export const PHONE = "";
 export const SESSION_RATE = "";
 
-// Path to the game logo PNG used in the header and footer.
+// Path to the game wordmark SVG used in the header and footer.
 export const LOGO_PACK_DIR = "/icons";
-export const WORDMARK_SRC = "/images/logo.png";
+export const WORDMARK_SRC = "/images/closecut-logo.svg";
 
 // Set to "" to disable Google Ads tracking.
 export const ANALYTICS_CONVERSION_ID = "";

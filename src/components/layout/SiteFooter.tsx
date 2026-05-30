@@ -16,10 +16,10 @@ export function SiteFooter() {
             <Image
               src={WORDMARK_SRC}
               alt={nav.brand}
-              width={1280}
-              height={720}
-              className="block h-8 w-auto"
-              sizes="57px"
+              width={960}
+              height={311}
+              className="block h-6 w-auto"
+              sizes="186px"
             />
           </Link>
           <div className="flex flex-col items-start gap-0.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-2">
