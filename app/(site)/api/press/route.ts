@@ -3,6 +3,8 @@ import { Resend } from "resend";
 import { withinRateLimit } from "@/lib/server/rateLimit";
 
 const FORM_MIN_AGE_MS = 2000;
+const FROM_EMAIL = "admin@foryn.org";
+const TO_EMAIL = "admin@foryn.org";
 
 export async function POST(req: NextRequest) {
   try {
@@ -46,16 +48,18 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ ok: false }, { status: 500 });
     }
 
-    const toEmail = process.env.PRESS_TO_EMAIL ?? "press@closecut.ai";
-    const fromEmail = process.env.PRESS_FROM_EMAIL ?? "press@closecut.ai";
-
     const resend = new Resend(apiKey);
     await resend.emails.send({
-      from: `Close Cut Press <${fromEmail}>`,
-      to: toEmail,
+      from: `Close Cut <${FROM_EMAIL}>`,
+      to: TO_EMAIL,
       replyTo: email,
-      subject: `Press inquiry from ${name}`,
-      text: `Name: ${name}\nEmail: ${email}\n\n${message}`,
+      subject: `[closecut.ai] Press inquiry from ${name}`,
+      text: [
+        "Site: closecut.ai /press",
+        `From: ${name} <${email}>`,
+        "",
+        message,
+      ].join("\n"),
     });
 
     return NextResponse.json({ ok: true });
