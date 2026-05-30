@@ -22,222 +22,105 @@ export const SEO_TYPES = {
 
 export const SEO_IMAGES = {
   openGraph: {
-    url: "/intensive/opengraph-image",
-    width: 1200,
-    height: 630,
+    url: "/og/og-image.png",
+    width: 1232,
+    height: 706,
   },
-  twitter: "/intensive/twitter-image",
+  twitter: "/og/og-image.png",
 } as const;
 
 export const SEO_ROBOTS = {
   noIndex: "noindex, nofollow",
 } as const;
 
-export const SITE_STATIC_PATHS = [
-  "/",
-  "/therapy",
-  "/about",
-  "/intensive",
-  "/intensive-fit-check",
-  "/billing",
-  "/contact",
-  "/resources",
-] as const;
+export const SITE_STATIC_PATHS = ["/", "/press"] as const;
 
-export const SHELVED_STATIC_PATHS = ["/workshops"] as const;
+export const SHELVED_STATIC_PATHS = [] as const;
 
-export const INTENSIVE_KEYWORDS = [
-  "couples intensive",
-  "two day couples intensive",
-  "relationship intensive",
-  "private couples intensive",
-  "before we commit couples intensive",
-  "making a decision relationship intensive",
-  "important transition relationship intensive",
-  "breach of trust couples intensive",
-  "loss of spark sexual challenges intensive",
-  "communication breakdown relationship support",
-] as const;
+export const INTENSIVE_KEYWORDS = [] as const;
 
 export const THERAFOX_SITE_SEO = {
-  title: "Therafox | Therapy and Intensives",
+  title: "Close Cut — Knife Sharpening Game",
   description:
-    "Individual, couples, and sex therapy plus private two day intensive support. Practical, structured care for patterns that keep repeating.",
+    "A knife-sharpening skill game for Steam. Hold longer for more points — but the danger window is always coming.",
   canonicalPath: "/",
   openGraph: {
-    title: "Therafox | Therapy and Intensives",
+    title: "Close Cut — Knife Sharpening Game",
     description:
-      "Individual, couples, and sex therapy with private intensive options. Name the pattern, then practice the skills that change it.",
-    imageAlt: "Therafox therapy practice overview",
+      "Hold. Push. Release. One stroke separates a sharp blade from a cut hand.",
+    imageAlt: "Close Cut — knife sharpening game key art",
   },
   twitter: {
-    title: "Therafox | Therapy and Intensives",
+    title: "Close Cut — Knife Sharpening Game",
     description:
-      "Individual, couples, and sex therapy with private intensive support for repeating patterns.",
+      "One button. Three knives. One slip.",
   },
 } as const;
 
 export const PAGE_SEO = {
   home: {
-    title: "Cultivate Connection | Therafox Therapy",
+    title: "Close Cut — Knife Sharpening Game",
     description:
-      "Stay close to others without losing yourself. Individual, couples, and sex therapy with private intensive options.",
+      "Hold. Push. Release. One stroke separates a sharp blade from a cut hand. A knife-sharpening skill game for Steam.",
     canonicalPath: "/",
     openGraph: {
-      title: "Cultivate Connection | Therafox",
+      title: "Close Cut — Knife Sharpening Game",
       description:
-        "Stay close to others without losing yourself. Therapy for individuals and couples, with space for sex and intimacy when it matters.",
-      imageAlt: "Cultivate Connection, Therafox homepage",
+        "Hold longer for more points — but the danger window is always coming. One button, three knives, one-more-try loop.",
+      imageAlt: "Close Cut — knife sharpening game key art",
     },
     twitter: {
-      title: "Cultivate Connection | Therafox",
-      description:
-        "Individual, couples, and sex therapy with private intensive support for repeating patterns.",
+      title: "Close Cut — Knife Sharpening Game",
+      description: "One button. Three knives. One slip.",
     },
   },
-  therapy: {
-    title: "Therapy Services | Therafox",
+  press: {
+    title: "Press Kit — Close Cut",
     description:
-      "I help you slow things down, name the pattern, and practice the skills that change it through individual, couples, and sex therapy.",
-    canonicalPath: "/therapy",
+      "Key art, factsheet, and press contact for Close Cut — a knife-sharpening skill game for Steam.",
+    canonicalPath: "/press",
     openGraph: {
-      title: "Therapy Services | Therafox",
-      description:
-        "Individual and couples therapy with a steady, practical approach. We name the pattern and practice new ways to respond.",
-      imageAlt: "Therafox therapy services overview",
+      title: "Press Kit — Close Cut",
+      description: "Key art, factsheet, and press contact for Close Cut.",
+      imageAlt: "Close Cut press kit",
     },
     twitter: {
-      title: "Therapy Services | Therafox",
-      description:
-        "Individual and couples therapy with practical support for anxiety, conflict, distance, and repair.",
-    },
-  },
-  about: {
-    title: "About Anastasia Fox, LMFT, CST | Therafox",
-    description:
-      "Meet Anastasia Fox, LMFT, CST. Relationally trained therapist offering sex therapy for adults and couples.",
-    canonicalPath: "/about",
-    openGraph: {
-      title: "About Anastasia Fox | Therafox",
-      description:
-        "Background, training, and approach. Relational work that pays attention to what happens between people, not just within.",
-      imageAlt: "Anastasia Fox, training and credentials",
-    },
-    twitter: {
-      title: "About Anastasia Fox | Therafox",
-      description:
-        "Background, training, and approach for sex therapy, couples therapy, and individual therapy.",
-    },
-  },
-  contact: {
-    title: "Request Availability | Book a Consult | Therafox",
-    description:
-      "Start with a free 20 minute consult. Share what is bringing you in and get a clear next step.",
-    canonicalPath: "/contact",
-    openGraph: {
-      title: "Contact Therafox | Book a Consult",
-      description:
-        "Request availability and start with a free 20 minute consult.",
-      imageAlt: "Therafox contact and consult",
-    },
-    twitter: {
-      title: "Contact Therafox | Book a Consult",
-      description:
-        "Request availability for individual, couples, sex therapy, and intensive support.",
-    },
-  },
-  workshops: {
-    title: "Workshops for Couples | Therafox",
-    description:
-      "In-person workshops for couples who want better conversations at home. Small groups, practical tools, and a clear waitlist-first process.",
-    canonicalPath: "/workshops",
-    openGraph: {
-      title: "Therafox Workshops",
-      description:
-        "In-person workshops for couples who want better conversations at home. Join a topic-specific waitlist to receive early access.",
-      imageAlt: "Therafox workshops overview",
-    },
-    twitter: {
-      title: "Therafox Workshops",
-      description:
-        "In-person workshops for couples. Topic-specific waitlists and early access to new dates.",
-    },
-  },
-  billing: {
-    title: "Billing and Reimbursement | Therafox",
-    description:
-      "Therafox is a private pay practice. Learn how superbills and out-of-network reimbursement work, including diagnosis and billing FAQs.",
-    canonicalPath: "/billing",
-    openGraph: {
-      title: "Billing and Reimbursement | Therafox",
-      description:
-        "Private pay billing, superbills, and out-of-network reimbursement details for Therafox clients.",
-      imageAlt: "Therafox billing and reimbursement information",
-    },
-    twitter: {
-      title: "Billing and Reimbursement | Therafox",
-      description:
-        "Private pay billing and superbill guidance for out-of-network reimbursement at Therafox.",
-    },
-  },
-  intensiveFitCheck: {
-    title: "Intensive Fit Check | Therafox",
-    description:
-      "A short mobile fit check to sort whether weekly therapy, a private intensive, or a consult may fit best right now.",
-    canonicalPath: "/intensive-fit-check",
-    openGraph: {
-      title: "Intensive Fit Check | Therafox",
-      description:
-        "A quick structured check for sorting fit between weekly therapy, a consult, and a private intensive.",
-      imageAlt: "Therafox Intensive Fit Check overview",
-    },
-    twitter: {
-      title: "Intensive Fit Check | Therafox",
-      description:
-        "Take a short fit check to sort whether weekly therapy, a private intensive, or a consult may fit best right now.",
+      title: "Press Kit — Close Cut",
+      description: "Key art and factsheet for Close Cut, a knife-sharpening skill game for Steam.",
     },
   },
 } as const;
 
 export const RESOURCES_SEO = {
   index: {
-    title: "Therafox Resources | Academic Reference Library",
-    description:
-      "Brief overviews, key concepts, and citations across couples therapy, sex therapy, and relationship research. Designed for learning, not sales.",
-    canonicalPath: "/resources",
-    openGraph: {
-      imageAlt: "Therafox academic resource library",
-    },
-    twitter: {
-      title: "Therafox Resources | Academic Reference Library",
-      description:
-        "Brief overviews, key concepts, and citations across couples therapy, sex therapy, and relationship research.",
-    },
+    title: "",
+    description: "",
+    canonicalPath: "/",
+    openGraph: { imageAlt: "" },
+    twitter: { title: "", description: "" },
   },
   detail: {
     titleSeparator: " | ",
-    titleSuffix: "Therafox Resources",
+    titleSuffix: "Close Cut",
     imageAltSeparator: ": ",
-    imageAltSuffix: "resource overview",
-    canonicalPrefix: "/resources/",
+    imageAltSuffix: "",
+    canonicalPrefix: "/",
   },
-  schema: {
-    collectionName: "Academic Resource Library",
-  },
+  schema: { collectionName: "" },
 } as const;
 
 export const SITE_STRUCTURED_DATA = {
   organization: {
     "@context": SEO_SCHEMA_CONTEXT,
     "@type": SEO_TYPES.schemaOrganization,
-    name: "Therafox",
+    name: "Close Cut",
     url: SITE_URL,
     description: THERAFOX_SITE_SEO.description,
   },
   website: {
     "@context": SEO_SCHEMA_CONTEXT,
     "@type": SEO_TYPES.schemaWebSite,
-    name: "Therafox",
+    name: "Close Cut",
     url: SITE_URL,
     description: THERAFOX_SITE_SEO.description,
   },
@@ -353,20 +236,19 @@ export const BRIDGE_WEEKEND_SEO = INTENSIVE_SEO;
 
 export const AI_DISCOVERY = {
   llmsPath: "/llms.txt",
-  title: "Therafox AI Discovery",
+  title: "Close Cut AI Discovery",
   summary:
-    "Therafox focuses on a private two day couples intensive with structured expert-held support and clear follow-through planning.",
+    "Close Cut is a knife-sharpening skill game for Steam. One button, three knives, risk/reward timing, one-more-try loop.",
   focus:
-    "Primary conversion path is the intensive page and waitlist flow. Workshops and legacy planner paths are shelved for MVP launch.",
+    "Primary conversion path is the Steam wishlist CTA on the home page.",
   themeIntents: [
-    "before we commit",
-    "making a decision",
-    "important transition",
-    "breach of trust",
-    "loss of spark and sexual challenges",
-    "communication breakdown",
+    "knife sharpening game",
+    "skill game steam",
+    "arcade timing game",
+    "one more try game",
+    "indie game steam wishlist",
   ] as const,
-  priorityPaths: ["/intensive", "/contact", "/therapy", "/about"] as const,
+  priorityPaths: ["/", "/press"] as const,
 } as const;
 
 export const INTENSIVE_THEME_PAGES = [

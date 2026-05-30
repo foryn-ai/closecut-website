@@ -12,22 +12,22 @@
    --heading:      heading text color
    --text:         body text color                                               */
 :root {
-  --canvas: #fdfcfb;
-  --primary: #6b7f6d;
-  --heading: #2d3748;
-  --text: #718096;
-  --accent: #d4af37;
-  --accent-warm: #c96d42;
+  --canvas: #1a1612;
+  --primary: #d1ad70;
+  --heading: #e8ddd0;
+  --text: #a89880;
+  --accent: #d1ad70;
+  --accent-warm: #c0392b;
   --accent-rule-width: 64px;
   --accent-rule-thickness: 3px;
   --accent-rule-inset: 10px;
 
-  --surface-1: rgba(107, 127, 109, 0.08);
-  --surface-2: rgba(107, 127, 109, 0.16);
-  --border: rgba(107, 127, 109, 0.22);
-  --divider: rgba(107, 127, 109, 0.16);
-  --focus: rgba(212, 175, 55, 0.4);
-  --shadow: rgba(45, 55, 72, 0.14);
+  --surface-1: rgba(209, 173, 112, 0.07);
+  --surface-2: rgba(209, 173, 112, 0.13);
+  --border: rgba(209, 173, 112, 0.18);
+  --divider: rgba(209, 173, 112, 0.12);
+  --focus: rgba(209, 173, 112, 0.4);
+  --shadow: rgba(0, 0, 0, 0.45);
 
   --body: var(--text);
   --primary-deep: color-mix(in srgb, var(--primary) 86%, var(--heading));
@@ -42,16 +42,16 @@
   --secondary: var(--surface-1);
   --secondary-foreground: var(--heading);
   --muted: var(--surface-1);
-  --muted-foreground: rgba(113, 128, 150, 0.72);
+  --muted-foreground: rgba(168, 152, 128, 0.72);
   --accent-foreground: var(--heading);
   --destructive: var(--heading);
   --input: var(--border);
   --ring: var(--focus);
-  --chart-1: rgba(107, 127, 109, 0.85);
-  --chart-2: rgba(45, 55, 72, 0.8);
-  --chart-3: rgba(113, 128, 150, 0.78);
-  --chart-4: rgba(212, 175, 55, 0.72);
-  --chart-5: rgba(107, 127, 109, 0.62);
+  --chart-1: rgba(209, 173, 112, 0.85);
+  --chart-2: rgba(232, 221, 208, 0.8);
+  --chart-3: rgba(168, 152, 128, 0.78);
+  --chart-4: rgba(192, 57, 43, 0.72);
+  --chart-5: rgba(209, 173, 112, 0.62);
   --sidebar: var(--canvas);
   --sidebar-foreground: var(--heading);
   --sidebar-primary: var(--primary);
@@ -82,7 +82,7 @@
 }
 
 .page-shell--interior {
-  --primary: #6b7f6d;
+  --primary: #d1ad70;
   --primary-deep: color-mix(in srgb, var(--primary) 86%, var(--heading));
   --accent: var(--accent-warm);
   --surface-1: color-mix(in srgb, var(--primary) 9%, transparent);
@@ -90,14 +90,8 @@
   --border: color-mix(in srgb, var(--primary) 24%, transparent);
   --divider: color-mix(in srgb, var(--primary) 17%, transparent);
   --focus: color-mix(in srgb, var(--accent-warm) 46%, transparent);
-  --shadow: rgba(45, 55, 72, 0.16);
-  background:
-    linear-gradient(
-      180deg,
-      color-mix(in srgb, var(--accent-warm) 8%, var(--canvas)) 0%,
-      rgba(253, 252, 251, 0.96) 240px,
-      rgba(253, 252, 251, 1) 560px
-    );
+  --shadow: rgba(0, 0, 0, 0.5);
+  background: var(--canvas);
 }
 
 .page-shell .tf-hero-rule {
@@ -237,7 +231,7 @@ h6 {
   }
   input::placeholder,
   textarea::placeholder {
-    color: rgba(113, 128, 150, 0.68);
+    color: rgba(168, 152, 128, 0.55);
   }
 }
 

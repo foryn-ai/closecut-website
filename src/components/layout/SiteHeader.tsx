@@ -33,10 +33,10 @@ export function SiteHeader() {
           <Image
             src={WORDMARK_SRC}
             alt={nav.brand}
-            width={1200}
-            height={300}
-            className="h-7 w-auto"
-            sizes="112px"
+            width={1280}
+            height={720}
+            className="h-10 w-auto"
+            sizes="72px"
           />
         </Link>
         <nav className="hidden items-center gap-6 md:flex">
