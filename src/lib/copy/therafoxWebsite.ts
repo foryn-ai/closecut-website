@@ -22,8 +22,8 @@ export const SITE_COPY = {
   footer: {
     locationsLabel: "Platform",
     locationsText: "PC — Steam",
-    contactLabel: "Press",
-    contactText: "press@closecut.ai",
+    contactLabel: "",
+    contactText: "",
     privacyLabel: "Studio",
     privacyText: "Foryn AI",
     ctaLabel: "Wishlist on Steam",

@@ -30,14 +30,16 @@ export function SiteFooter() {
               {footer.locationsText}
             </Text>
           </div>
-          <div className="flex flex-col items-start gap-0.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-2">
-            <Text role="eyebrow" as="span" className="text-primary">
-              {footer.contactLabel}
-            </Text>
-            <Text role="fine" as="span" className="text-body">
-              {footer.contactText}
-            </Text>
-          </div>
+          {footer.contactText && (
+            <div className="flex flex-col items-start gap-0.5 sm:flex-row sm:flex-wrap sm:items-center sm:gap-2">
+              <Text role="eyebrow" as="span" className="text-primary">
+                {footer.contactLabel}
+              </Text>
+              <Text role="fine" as="span" className="text-body">
+                {footer.contactText}
+              </Text>
+            </div>
+          )}
         </div>
         <Link
           className={ctaClass(
