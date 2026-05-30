@@ -29,12 +29,12 @@ export default function Home() {
             style={{ objectFit: "cover", objectPosition: "center" }}
           />
           <div
-            className="absolute inset-0 flex items-center justify-center"
+            className="absolute inset-0"
             style={{ background: "rgba(26,22,18,0.35)" }}
           >
             <div
-              className="relative"
-              style={{ width: "clamp(200px, 28vw, 380px)", aspectRatio: "960/311" }}
+              className="absolute left-1/2 -translate-x-1/2 relative"
+              style={{ top: "28%", width: "clamp(200px, 28vw, 380px)", aspectRatio: "960/311" }}
             >
               <Image
                 src="/images/closecut-logo.svg"
