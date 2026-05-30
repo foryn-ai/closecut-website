@@ -20,8 +20,9 @@
 # production
 /build
 
-# copy drafts (working files — not source of truth)
+# copy drafts (working files -- not source of truth)
 /copy-drafts/*.json
+!/copy-drafts/home.json
 
 # misc
 .DS_Store
