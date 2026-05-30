@@ -34,7 +34,7 @@ export default function Home() {
           >
             <div
               className="absolute left-1/2 -translate-x-1/2 relative"
-              style={{ top: "28%", width: "clamp(200px, 28vw, 380px)", aspectRatio: "960/311" }}
+              style={{ top: "23%", width: "clamp(200px, 28vw, 380px)", aspectRatio: "960/311" }}
             >
               <Image
                 src="/images/closecut-logo.svg"
