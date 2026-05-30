@@ -3,7 +3,7 @@
 
 export const SEO_VERSION = "2026-02-05";
 export const SEO_LAST_MODIFIED = "2026-02-05";
-export const SITE_URL = "https://www.therafox.com";
+export const SITE_URL = "https://closecut.ai";
 export const SEO_SCHEMA_CONTEXT = "https://schema.org";
 
 export const SEO_TYPES = {
