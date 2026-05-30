@@ -5,14 +5,13 @@ import { Section } from "@/components/shared/Section";
 import { SurfaceCard } from "@/components/shared/SurfaceCard";
 import { Heading } from "@/components/ui/Heading";
 import { Text } from "@/components/ui/Text";
+import { PressContactForm } from "@/components/press/PressContactForm";
 
 export const metadata: Metadata = {
   title: "Press Kit -- Close Cut",
   description:
     "Key art, factsheet, and press contact for Close Cut -- a knife-sharpening skill game for Steam.",
 };
-
-const PRESS_EMAIL = "press@closecut.ai";
 
 const factsheet: Array<[string, string]> = [
   ["Title", "Close Cut"],
@@ -22,7 +21,6 @@ const factsheet: Array<[string, string]> = [
   ["Release", "TBA"],
   ["Languages", "EN, DE, ES, FR, JA, KO, PT-BR, RU, ZH-CN"],
   ["Achievements", "8 Steam achievements"],
-  ["Press contact", PRESS_EMAIL],
 ];
 
 export default function PressPage() {
@@ -113,16 +111,14 @@ export default function PressPage() {
           </div>
 
           {/* Press contact */}
+          <div className="mb-2">
+            <Heading role="h2" className="mb-5">Press contact</Heading>
+            <Text role="body" measure="narrow" className="text-body mb-6">
+              For preview builds, interviews, or additional assets.
+            </Text>
+          </div>
           <SurfaceCard>
-            <div className="space-y-2">
-              <Heading role="h3">Press contact</Heading>
-              <Text role="body" className="text-body">
-                For preview builds, interviews, or additional assets:{" "}
-                <a href={`mailto:${PRESS_EMAIL}`} className="text-primary">
-                  {PRESS_EMAIL}
-                </a>
-              </Text>
-            </div>
+            <PressContactForm />
           </SurfaceCard>
         </Section>
       </PageShell>
