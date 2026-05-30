@@ -25,7 +25,7 @@ export function Heading({ role, as, className, style, children }: HeadingProps) 
   return (
     <Tag
       className={cn(headingType[role], "text-heading", className)}
-      style={{ fontFamily: "var(--font-playfair), Georgia, serif", ...style }}
+      style={{ fontFamily: "var(--font-bebas), sans-serif", letterSpacing: "0.04em", ...style }}
     >
       {children}
     </Tag>

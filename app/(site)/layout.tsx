@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import localFont from "next/font/local";
+import { Bebas_Neue } from "next/font/google";
 import Script from "next/script";
 import { CampaignAttributionCapture } from "@/components/analytics/CampaignAttributionCapture";
 import { SitePageViewTracker } from "@/components/analytics/SitePageViewTracker";
@@ -46,30 +47,10 @@ const inter = localFont({
   display: "swap",
 });
 
-const playfair = localFont({
-  src: [
-    {
-      path: "../../public/fonts/playfair-display-latin-400-normal.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/playfair-display-latin-500-normal.woff2",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/playfair-display-latin-600-normal.woff2",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "../../public/fonts/playfair-display-latin-700-normal.woff2",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  variable: "--font-playfair",
+const bebasNeue = Bebas_Neue({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-bebas",
   display: "swap",
 });
 
@@ -122,7 +103,7 @@ export default function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${bebasNeue.variable} font-sans antialiased`}>
         {ANALYTICS_CONVERSION_ID && (
           <Script
             src={`https://www.googletagmanager.com/gtag/js?id=${ANALYTICS_CONVERSION_ID}`}
