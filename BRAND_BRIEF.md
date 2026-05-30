@@ -10,7 +10,7 @@ Paste the completed brief into Claude.ai or ChatGPT at the start of a copy sessi
 
 **Brand name:** Close Cut
 
-**Site URL:** <!-- TODO: confirm domain before launch -->
+**Site URL:** https://closecut.ai
 
 **Practitioner name and credentials:** N/A — this is a video game, not a practice
 
